@@ -1,0 +1,11 @@
+class Validate 
+contains
+    a list of valid moves
+
+has functions
+    createList
+        needs the player's hand
+        needs the lead card
+        needs the other cards ( for cpu algs )
+    checkMove
+        checks if move is listed

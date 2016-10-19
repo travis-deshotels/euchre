@@ -1,0 +1,27 @@
+class GameManager {
+contains:
+    HandIterator* handIt
+    LayoutIterator* layoutIt
+has operations:
+    void handFirst( )
+        handIt->first( )
+    bool handIsDone( )
+        return( handIt->isDone( ) )
+    void handNext( )
+        handIt->next( )
+    Card cardHereInHand( )
+        return( handIt->currentItem( ) )
+
+    void layoutFirst( )
+        layoutIt->first( )
+    bool layoutIsDone()
+        return( layoutIt->isDone( ) )
+    void layoutNext( )
+        layoutIt->next()
+    Card cardHereInLayout( )
+        return( layoutIt->currentItem( ) )
+    
+    updateLayout( )
+        updates the current layout
+    updateHand( )
+        updates the current hand

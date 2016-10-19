@@ -1,0 +1,33 @@
+void Layout::build( int index1, int index2, int target ) {
+    count the number of cards that are in given indexes
+    if( cardCounts == 1 ) {
+        if( ( target != index1 ) && ( target != index2 ) ) {
+        remove card from index1
+        place the build card in first space
+            set suit to b
+            set rank to target
+        replace card into index1
+        remove card from index2
+        add card to index1
+        swap last item with the new hole
+        decrement size
+        else
+            same thing but
+            set suit of build card to B
+        }
+    }
+    else
+        if( ( target != index1 ) && ( target != index2 ) ) {
+        remove cards from index1
+        place the build card in first space
+            set suit to b
+            set rank to target
+        remove all cards from index2
+        add cards to index1
+        swap last item with the new hole
+        decrement size
+        else
+            same thing but
+            set suit of build card to B
+        }
+}

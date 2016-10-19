@@ -1,0 +1,69 @@
+Screen myScreen;
+Validate myValidate;
+Hand hands[4];
+Card turnCard;
+DeckType* deck = new EuchreDeck( );
+int dealer = 0;     //this is the index of the player who is dealing
+int callingTeam = 0;    //this is either 1 or 2
+            //it keeps track of who called it
+int lastTrickWinner;    //this keeps track of who won the last trick
+
+Score myScore;
+char currentTrump;
+
+Player players[] = { human, cpu, cpu, cpu };
+Team team1( players[0], players[1] );
+Team team2( players[2], players[3] );
+
+while( user wants to continue playing ) {
+    while( game is not over ) {
+        deck->shuffle( );
+        fill each hand with 5 cards
+        turnCard = deck.pop( );
+    
+        foreach player {    //start at dealer's left
+            show player the turnCard
+            ask player if he wants to call it
+            if ( player wants to call it )
+                give turnCard to dealer
+                set callingTeam
+                set currentTrump
+                break;
+        }
+        //player may choose trump
+        flip over turnCard
+        foreach player {
+            ask player if he wants to pick a trump
+            if ( player wants to call it )
+                set callingTeam
+                set currentTrump
+                break;
+            else if ( player is dealer )
+                //dealer must pick a trump
+                set callingTeam
+                set currentTrump
+        }
+        //start the tricks
+        foreach trick {     //five times
+            if( first trick )   //i==0
+                start with dealer's left
+            else
+                start with last trick winner
+            foreach player {    //four times
+                show player his hand
+                show player the cards already played
+                ask player for his move
+                validate the move
+                get the winner of trick
+                give trick to winning team
+            }
+            update trick winner
+        }   //end current hand
+        if( team1 has enough points to win )
+            declare team1 winner
+        if( team2 has enough points to win)
+            declare team2 winner
+        else
+            display the point totals for each team
+    }   //end current game
+}   //end program
